@@ -12,6 +12,11 @@ public class WasRun extends TestCase {
     log = "setUp";
   }
 
+  @Override
+  public void tearDown() {
+    log += " tearDown";
+  }
+
   public void testMethod() {
     log += " testMethod";
   }
