@@ -1,6 +1,5 @@
 package com.dojinyou.xuint;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class TestCase {
@@ -10,8 +9,7 @@ public class TestCase {
     this.name = name;
   }
 
-  public TestResult run() {
-    TestResult testResult = new TestResult();
+  public TestResult run(TestResult testResult) {
     testResult.testStarted();
     setUp();
 
