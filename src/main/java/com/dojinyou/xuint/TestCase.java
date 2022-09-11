@@ -2,14 +2,15 @@ package com.dojinyou.xuint;
 
 import java.lang.reflect.Method;
 
-public class TestCase {
+public class TestCase implements Test {
   protected final String name;
 
   public TestCase(String name) {
     this.name = name;
   }
 
-  public TestResult run(TestResult testResult) {
+  @Override
+  public void run(TestResult testResult) {
     testResult.testStarted();
     setUp();
 
@@ -22,12 +23,11 @@ public class TestCase {
     }
 
     tearDown();
-    return testResult;
   }
 
   public void tearDown() {
-
   }
 
-  public void setUp() { }
+  public void setUp() {
+  }
 }
