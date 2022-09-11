@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.core.annotation.AnnotationUtils;
+
 public class TestSuite implements Test {
 
   List<Test> tests = new ArrayList<>();
@@ -11,9 +13,7 @@ public class TestSuite implements Test {
   public TestSuite(Class<? extends TestCase> testClass) {
     Arrays
         .stream(testClass.getDeclaredMethods())
-        .filter(m -> m
-            .getName()
-            .startsWith("test"))
+        .filter(m -> AnnotationUtils.findAnnotation(m, com.dojinyou.xuint.annotation.Test.class) != null)
         .forEach(m -> {
           try {
             add(testClass
